@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Examen Teórico de Tránsito</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <br>
+            <br>
+            <h1>Simulador de Examen Teórico de Tránsito</h1>
+            <p>Simulacro No-oficial basado en el Código Nacional de Tránsito (Ley 769 de 2002) y normativa relacionada.</p>
+        </header>
+        <button id="toggle-dark" aria-label="Cambiar modo oscuro/claro"></button>
+        <section id="welcome-section" class="card">
+            <h2>Bienvenido/a</h2>
+            <p>Este simulador te permite practicar para el examen teórico para la Licencia de Conducción en Colombia. Se seleccionarán 10 preguntas al azar. Solo puedes fallar hasta 2 preguntas para aprobar.<br><br>
+            <b>Instrucciones:</b>
+            <ul>
+                <li>Lee cuidadosamente cada pregunta y selecciona la respuesta correcta.</li>
+                <li>Puedes cambiar entre modo claro y oscuro usando el botón arriba a la derecha.</li>
+            </ul>
+            ¡Éxitos!
+            </p>
+            <button id="start-btn">Iniciar Simulacro</button>
+        </section>
+        <section id="quiz-section" style="display:none;"></section>
+        <section id="result-section" style="display:none;"></section>
+    </main>
+    <script src="assets/simulador.js"></script>
+</body>
+</html>
