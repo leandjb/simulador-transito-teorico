@@ -113,22 +113,30 @@ function mostrarResultado(fallos, preguntasFalladas) {
         <br>Fallaste en <b>${fallos}</b> pregunta${fallos === 1 ? '' : 's'}.<br>
     </div>
     <h2>Preguntas falladas</h2>
-    ${preguntasFalladas.length === 0 ? '<p>¡No fallaste ninguna pregunta!</p>' : preguntasFalladas.map(f => `
-      <div class="card">
-        <div class="question">${f.idx + 1}. ${f.pregunta}</div>
-        <div class="options">
-          ${f.opciones.map((op, i) => {
-            const letra = String.fromCharCode(65 + i);
-            let clase = '';
-            if (letra === f.respuestaCorrecta) clase = 'success';
-            if (letra === f.respuestaUsuario && letra !== f.respuestaCorrecta) clase = 'fail';
-            return `<span class="${clase}">${letra}. ${op}</span>`;
-          }).join('')}
+    ${preguntasFalladas.length === 0 ? '<p>¡No fallaste ninguna pregunta!</p>' : preguntasFalladas.map(f => {
+      const opcionesHTML = f.opciones.map((op, i) => {
+        const letra = String.fromCharCode(65 + i);
+        if (letra === f.respuestaCorrecta && letra === f.respuestaUsuario) {
+          // Acertada
+          return `<div class="respuesta-opcion acierto"><span class="icono">✅</span> <b>${letra}.</b> ${op} <span class="etiqueta">(Correcta)</span></div>`;
+        } else if (letra === f.respuestaCorrecta) {
+          // Correcta pero no seleccionada
+          return `<div class="respuesta-opcion correcta"><span class="icono">✅</span> <b>${letra}.</b> ${op} <span class="etiqueta">(Correcta)</span></div>`;
+        } else if (letra === f.respuestaUsuario) {
+          // Seleccionada pero incorrecta
+          return `<div class="respuesta-opcion error"><span class="icono">❌</span> <b>${letra}.</b> ${op} <span class="etiqueta">(Tu respuesta)</span></div>`;
+        } else {
+          // Otras
+          return `<div class="respuesta-opcion">${letra}. ${op}</div>`;
+        }
+      }).join('');
+      return `
+        <div class="card card-respuesta">
+          <div class="question">${f.idx + 1}. ${f.pregunta}</div>
+          <div class="respuestas-lista">${opcionesHTML}</div>
         </div>
-        <div><b class="success">Respuesta correcta: ${f.respuestaCorrecta}</b></div>
-        <div><b class="${f.respuestaUsuario === f.respuestaCorrecta ? 'success' : 'fail'}">Tu respuesta: ${f.respuestaUsuario || 'Sin responder'}</b></div>
-      </div>
-    `).join('')}
+      `;
+    }).join('')}
     <button onclick="window.location.reload()">Reintentar</button>
   `;
 }

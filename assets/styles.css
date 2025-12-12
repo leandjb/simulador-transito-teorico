@@ -1,3 +1,47 @@
+/* Respuestas al finalizar el simulacro */
+.card-respuesta {
+  border-left: 6px solid #e0e0e0;
+  margin-bottom: 2.2rem;
+  background: linear-gradient(90deg, #fff 80%, #f4f6fa 100%);
+}
+.respuestas-lista {
+  margin-top: 0.7rem;
+}
+.respuesta-opcion {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+}
+.respuesta-opcion .icono {
+  font-size: 1.1em;
+  margin-right: 0.2em;
+}
+.respuesta-opcion.acierto {
+  background: rgba(56, 142, 60, 0.13);
+  color: var(--success);
+  font-weight: bold;
+  border-left: 4px solid var(--success);
+}
+.respuesta-opcion.correcta {
+  background: rgba(56, 142, 60, 0.08);
+  color: var(--success);
+  border-left: 4px solid var(--success);
+}
+.respuesta-opcion.error {
+  background: rgba(211, 47, 47, 0.13);
+  color: var(--error);
+  font-weight: bold;
+  border-left: 4px solid var(--error);
+}
+.respuesta-opcion .etiqueta {
+  font-size: 0.95em;
+  margin-left: 0.5em;
+  opacity: 0.8;
+}
 /* Animaciones y transiciones */
 .fade-in {
   animation: fadeIn 0.5s;
