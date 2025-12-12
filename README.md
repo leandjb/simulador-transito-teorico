@@ -1,3 +1,10 @@
+#
+# Accede al simulador en línea
+
+Puedes practicar directamente desde tu navegador en el siguiente enlace:
+
+[Ir al Simulador de Examen Teórico de Tránsito](https://leandjb.github.io/simulador-transito-teorico/)
+
 
 # ¿Qué es este simulador?
 
@@ -17,17 +24,27 @@ Este simulador te permite practicar para el examen teórico de tránsito en Colo
 3. Al terminar, revisa el resumen para ver en qué preguntas acertaste o fallaste.
 4. Puedes volver a intentarlo cuantas veces quieras.
 
-## ¿Cómo se crean las preguntas?
+## ¿Cómo se crear nuevas preguntas?
 
 Si quieres agregar más preguntas al simulador, cada pregunta debe estar en una sola línea, siguiendo este formato:
 
+```txt
 Pregunta|Opción A|Opción B|Opción C|Opción D|Letra de la respuesta correcta
+```
+Finalmente, debes agregarlas dentro de un archivo TXT dentro del folfer /db
 
 **Ejemplo:**
+
+***Archivo:*** ./db/PreguntaSemaforo.txt
+```
 ¿Cuál es el color del semáforo que indica detenerse?|Rojo|Verde|Amarillo|Azul|A
+```
 
 - Si una pregunta tiene menos de 4 opciones, deja los campos vacíos.
 - La letra de la respuesta correcta debe ser A, B, C o D (en mayúscula).
 - No incluyas numeración ni encabezados.
 
-¡Éxito en tu preparación y en tu examen real!
+
+___
+
+¡Éxito en tu preparación y en tu examen teórico!
